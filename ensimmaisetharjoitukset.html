@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 5px;
+        }
+        #tehtava1{
+            background-color: orange;
+            padding: 3px;
+            margin: 5px;
+        }
+        p{
+            padding: 2px;
+        }
+        #tehtava2{
+            background-color: pink;
+            padding: 3px;
+            margin: 5px;
+        }
+        #tehtava3{
+            background-color: rgb(240, 240, 143);
+            padding: 3px;
+            margin: 5px;
+        }
+
+        #tehtava4{
+            background-color: rgb(151, 254, 158);
+            padding: 3px;
+            margin: 5px;
+        }
+
+        #tehtava5{
+            background-color: rgb(141, 195, 228);
+            padding: 3px;
+            margin: 5px;
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <form id="tehtava1">
+        <h2>Tehtävä 1</h2>
+    
+    
+        <p>Ohjelma, joka pyytää käyttäjältä kolme numeroa, ja laittaa ne järjestykseen</p>
+        <label>Anna 1. numero: <input type="number" id="num1"></label> </br>
+        <label>Anna 2. numero: <input type="number" id="num2"></label> </br>
+        <label>Anna 3. numero: <input type="number" id="num3"></label> </br>
+
+        <button type="button" onclick="numerot()">Järjestä luvut</button>
+        <p id="tulos"></p>
+        <script>
+            function numerot(){
+                let num1 = Number(document.getElementById("num1").value)
+                let num2 = Number(document.getElementById("num2").value)
+                let num3 = Number(document.getElementById("num3").value)
+                
+
+                let luvut = [num1, num2, num3]
+                luvut.sort(function(x, y){
+                    return x - y;
+                });
+
+                document.getElementById("tulos").innerHTML = 
+                    "Luvut järjestyksessä: " + luvut.join(", ");
+            }
+        </script>
+    </form>
+
+    <form id="tehtava2">
+        <h2>Tehtävä 2</h2>
+        <p>Ohjelma, joka ottaa vastaan 5 lukua ja etsii niistä suurimman</p></br>
+        <label>Anna 1. luku: <input type="number" id="num1.2"></label></br>
+        <label>Anna 2. luku: <input type="number" id="num2.2"></label></br>
+        <label>Anna 3. luku: <input type="number" id="num3.2"></label></br>
+        <label>Anna 4. luku: <input type="number" id="num4.2"></label></br>
+        <label>Anna 5. luku: <input type="number" id="num5.2"></label></br>
+
+        <button type="button" onclick="suurinNumero()">Etsi suurin numero</button>
+        <p id="tulos2"></p>
+        <script>
+            function suurinNumero(){
+                let luku1 = Number(document.getElementById("num1.2").value)
+                let luku2 = Number(document.getElementById("num2.2").value)
+                let luku3 = Number(document.getElementById("num3.2").value)
+                let luku4 = Number(document.getElementById("num4.2").value)
+                let luku5 = Number(document.getElementById("num5.2").value)
+
+                let luvut2 = [luku1, luku2, luku3, luku4, luku5]
+                let suurin = Math.max(...luvut2)
+                document.getElementById("tulos2").innerHTML =
+                    "Suurin luku: " + suurin
+            }
+
+        </script>
+    </form>
+
+    <form id="tehtava3">
+        <h2>Tehtävä 3</h2>
+        <p>Ohjelma, joka kertoo onko antamasi luku parillinen vai pariton</p>
+        <label>Anna luku: <input type="number" id="luku"></label></br>
+        <button type="button" onclick="parillinen()">Tarkista</button></br>
+        <p id="tulos3"></p>
+        <script>
+            function parillinen(){
+                let luku = Number(document.getElementById("luku").value)
+                let mjono = ""
+                if (luku % 2 == 0){
+                    mjono = "Antamasi luku on parillinen"
+                } else {
+                    mjono = "Antamasi luku on pariton"
+                }
+                document.getElementById("tulos3").innerHTML =
+                    mjono
+            }
+        </script>
+    </form>
+
+
+    <form id="tehtava4">
+        <h2>Tehtävä 4</h2>
+        <p>Ohjelma, joka kertoo iän perusteella, mitä ajoneuvoa saat ajaa</p>
+        <label>Anna käyttäjän ikä: <input type="number" id="ika"></label> </br>
+        <button type="button" onclick="ajoneuvo()">Näytä ajoneuvo</button> </br>
+        <p id="tulos4"></p>
+
+        <script>
+           function ajoneuvo(){
+            let ika = Number(document.getElementById("ika").value)
+            let ajoneuvo = "Saat ajaa "
+            if (ika < 16){
+                ajoneuvo += "polkupyörää"
+            }else if (ika < 18){
+                ajoneuvo += "mopoa"
+            }else {
+                ajoneuvo += "autoa"
+            }
+            document.getElementById("tulos4").innerHTML =
+                ajoneuvo
+           } 
+        </script>
+    </form>
+
+    <form id="tehtava5" name="tehtava5">
+        <h2>Tehtävä 5</h2>
+        <p>Ohjelma, joka kääntää "Hei maailma" - tekstin valitulle kielelle</p> </br>
+        <label>Valitse kieli 
+            <select name="kieli" id="">
+                <option value="">--Valitse kieli --</option>
+                <option value="Englanti">Englanti</option>
+                <option value="Ruotsi">Ruotsi</option>
+                <option value="Espanja">Espanja</option>
+            </select>
+            <button type="button" onclick="kaanna()">Käännä</button>
+            <p id="tulos5"></p>
+        </label>
+        <script>
+            function kaanna(){
+                let indeksi = document.tehtava5.kieli.selectedIndex
+                let mjono = ""
+                if (indeksi == 1){
+                    mjono = "Hello world!"
+                }else if (indeksi == 2){
+                    mjono = "Hej världen!"
+                }else{
+                    mjono = "Hola Mundo!"
+                }
+                document.getElementById("tulos5").innerHTML =
+                    mjono
+            }
+        </script>
+    </form>
+
+
+
+    
+</body>
+</html>
