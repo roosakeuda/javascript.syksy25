@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            padding: 5px;
+            background-color: lightpink;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form id="tehtava1">
+        <h2>Tehtävä 1</h2>
+        <label>Anna sana, jonka pisteet lasketaan: <input type="text" id="t1sana"></label>
+        <button type="button" onclick="scrabble()">Laske kirjainpisteet</button>
+        <p id="tulos1"></p>
+        <script>
+            function scrabble(){
+                let sana = document.getElementById("t1sana").value
+                let isoilla = sana.toUpperCase()
+                let pituus = sana.length -1
+                let i = 0
+                let pisteet = 0
+                while (i <= pituus){
+                    switch (isoilla[i]){
+                        case "A":
+                        case "E":
+                        case "I":
+                        case "N":
+                        case "S":
+                        case "T":
+                            pisteet += 1
+                            break
+                        case "O":
+                        case "Ä":
+                        case "K":
+                        case "L":
+                            pisteet += 2
+                            break
+                        case "U":
+                        case "M":
+                            pisteet += 3
+                            break
+                        case "Y":
+                        case "H":
+                        case "J":
+                        case "P":
+                        case "R":
+                        case "V":
+                            pisteet += 4
+                            break
+                        case "Ö":
+                        case "D":
+                            pisteet += 7
+                            break
+                        case "B":
+                        case "F":
+                        case "G":
+                            pisteet += 8
+                            break
+                        case "C":
+                            pisteet += 10
+                            break
+                        default:
+                            pisteet += 12
+                            break
+                    }
+                    i ++
+                }
+                document.getElementById("tulos1").innerHTML =
+                    `Sanan ${sana} pisteet ovat: ${pisteet}`
+    
+            }
+        </script>
+    </form>
+
+
+    <form id="tehtava2">
+        <h2>Tehtävä 2</h2>
+        <button type="button" onclick="lottonumero()">Arvo lottonumerot</button>
+        <p id="tulos2"></p>
+        <script>
+            function lottonumero(){
+                let numerot = []
+                let i = 0
+                while (i < 7){
+                    let luku = Math.floor(Math.random()*40)+1
+                    numerot.push(luku)
+                    i++
+                }
+                document.getElementById("tulos2").innerHTML = 
+                    numerot
+            }
+        </script>
+
+    </form>
+
+
+    <form id="tehtava3">
+        <h2>Tehtävä 3</h2>
+        <button type="button" onclick=""></button>
+
+    </form>
+
+
+    <form id="tehtava4">
+        <h2>Tehtävä 4</h2>
+        <button type="button" onclick=""></button>
+
+    </form>
+</body>
+</html>

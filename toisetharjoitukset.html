@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            padding: 4px;
+        }
+        form{
+            padding: 6px;
+            margin: 4px
+        }
+        #tehtava1{
+        background-color: lightblue;
+        }
+        #tehtava2{
+            background-color: lightcoral;
+ 
+        }
+        #tehtava3{
+           background-color: lightcyan; 
+        }
+        #tehtava4{
+            background-color: lightpink;
+        }
+        #tehtava5{
+            background-color: lightseagreen;
+
+        }
+    </style>
+</head>
+<body>
+    <form id="tehtava1">
+        <h2>Tehtävä 1</h2>
+        <h3>Onko luku positiivinen vai negatiivinen</h3>
+        <label>Anna luku: <input type="number" name="" id="luku"></label>
+        <button type="button" onclick="posiNega()">Tarkista</button>
+        <p id="tulos"></p>
+        <script>
+            function posiNega(){
+                let luku = Number(document.getElementById("luku").value)
+                let vastaus = ""
+                if (luku >= 0){
+                    vastaus = "Luku on positiivinen"
+                }else{
+                    vastaus = "Luku on negatiivinen"
+                }
+                document.getElementById("tulos").innerHTML =
+                    vastaus;
+                
+            }
+        </script>
+    </form>
+    <form id="tehtava2">
+        <h2>Tehtävä 2</h2>
+        <h3>Mikä viikonpäivä?</h3>
+        <label>Anna viikonpäivän numero: <input type="number" id="paiva"></label>
+        <button type="button" onclick="mikaPaiva()">Tarkista</button>
+        <p id="tulos2"></p>
+        <script>
+            function mikaPaiva(){
+                let paivaNro = Number(document.getElementById("paiva").value)
+                let paiva = ""
+                switch (paivaNro){
+                    case 1:
+                        paiva = "Maanantai"
+                        break
+                    case 2:
+                        paiva = "Tiistai"
+                        break
+                    case 3:
+                        paiva = "Keskiviikko"
+                        break 
+                    case 4:
+                        paiva = "Torstai"
+                        break
+                    case 5:
+                        paiva = "Perjantai"
+                        break 
+                    case 6:
+                        paiva = "Lauantai"
+                        break
+                    case 7:
+                        paiva = "Sunnuntai"
+                        break
+                }
+                document.getElementById("tulos2").innerHTML =
+                    paiva
+            }
+        </script>
+    </form>
+    <form id="tehtava3">
+        <h2>Tehtävä 3</h2>
+        <h3>Onko vuosi karkausvuosi</h3>
+        <label>Anna vuosiluku: <input type="number" id="vuosiluku"></label>
+        <button type="button" onclick="karkausvuosi()">tarkista</button>
+        <p id="tulos3"></p>
+        <script>
+            function karkausvuosi(){
+                let vuosi = Number(document.getElementById("vuosiluku").value)
+                vastaus3 = ""
+                if (vuosi % 4 == 0 && vuosi % 100 != 0) {
+                    vastaus3 = "Vuosi on karkausvuosi";
+                }
+                else if (vuosi % 400 == 0) {
+                    vastaus3 = "Vuosi on karkausvuosi";
+                }
+                else {
+                    vastaus3 = "Vuosi ei ole karkausvuosi";
+                }
+            document.getElementById("tulos3").innerHTML =
+                vastaus3
+            }
+        </script>
+    </form>
+    <form id="tehtava4">
+        <h2>Tehtävä 4</h2>
+        <h3></h3>
+        <label>Anna 1. luku: <input type="number" id="num1"></label></br>
+        <label>Anna 2. luku: <input type="number" id="num2"></label></br>
+        <label>Anna 3. luku: <input type="number" id="num3"></label></br>
+        <label>Anna 4. luku: <input type="number" id="num4"></label></br>
+        <label>Anna 5. luku: <input type="number" id="num5"></label></br>
+        <button type="button" onclick="summaKa()">Laske</button>
+        <p id="tulos4"></p>
+        <script>
+            function summaKa(){
+                let luku1 = Number(document.getElementById("num1").value)
+                let luku2 = Number(document.getElementById("num2").value)
+                let luku3 = Number(document.getElementById("num3").value)
+                let luku4 = Number(document.getElementById("num4").value)
+                let luku5 = Number(document.getElementById("num5").value)
+                let summa = luku1 + luku2 + luku3 + luku4 + luku5
+                let keskiarvo = summa / 5
+                document.getElementById("tulos4").innerHTML =
+                    "Lukujen summa on: " + summa + " ja keskiarvo on: " + keskiarvo
+            }
+        </script>
+    </form>
+    <form id="tehtava5">
+        <h2>Tehtävä 5</h2>
+        <label>Anna luku: <input type="number" name="" id="nro"></label>
+        <button type="button" onclick="laskin()">Laske</button>
+        <p id="tulos5"></p>
+        <script>
+            function laskin(){
+                let nro = Number(document.getElementById("nro").value)
+                let lause = ""
+                lause += nro + "x 1 = " + nro * 1 + ", " 
+                lause += nro + " x 2 =" + nro*2 + ", "
+                lause += nro + " x 3 =" + nro*3 + ", "
+                lause += nro + " x 4 =" + nro*4 + ", "
+                lause += nro + " x 5 =" + nro*5 + ", "
+                lause += nro + " x 6 =" + nro*6 + ", "
+                lause += nro + " x 7 =" + nro*7 + ", "
+                lause += nro + " x 8 =" + nro*8 + ", "
+                lause += nro + " x 9 =" + nro*9 + ", "
+                lause += nro + " x 10 =" + nro*10
+                document.getElementById("tulos5").innerHTML = 
+                    lause
+            }
+        </script>
+    </form>
+</body>
+</html>

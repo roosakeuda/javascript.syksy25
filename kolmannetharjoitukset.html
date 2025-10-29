@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form{
+            padding: 5px;
+            margin: 7px
+        }
+        #tehtava1{
+            background-color: lightblue;
+        }
+        #tehtava2{
+            background-color: lightcoral;
+        }
+        #tehtava3{
+            background-color: lightcyan;
+        }
+        #tehtava4{
+            background-color: lightgoldenrodyellow;
+        }
+        #tehtava5{
+            background-color: lightgray;
+        }
+        #tehtava6{
+            background-color: lightgreen;
+        }
+        #tehtava7{
+            background-color: lightpink;
+        }
+        #tehtava8{
+            background-color: lightsalmon;
+        }
+        #tehtava9{
+            background-color: lightseagreen;
+        }
+        #tehtava10{
+            background-color: lightyellow;
+        }
+        #tehtava11{
+            background-color: lightskyblue;
+        }
+    </style>
+</head>
+<body>
+    <form id="tehtava1">
+        <h2>Tehtävä 1</h2>
+        <label>Anna parillinen luku: <input type="text" id="t1luku"></label>
+        <button type="button" onclick="parilliset()">Tulosta parilliset</button>
+        <p id="tulos1"></p>
+        <script>
+            function parilliset(){
+                let luku = Number(document.getElementById("t1luku").value)
+                let tulostus = " "
+                i = 2
+                while (i <= luku ){
+                    tulostus += String(i) + "  "
+                    i += 2
+                }
+                document.getElementById("tulos1").innerHTML =
+                    tulostus
+            }
+        </script>
+    </form>
+
+
+    <form id="tehtava2">
+        <h2>Tehtävä 2</h2>
+        <label>Anna sana: <input type="text" id="t2sana"></label>
+        <button type="button" onclick="lisaaO()">Muuta salasanaksi</button>
+        <p id="tulos2"></p>
+        <script>
+            function lisaaO(){
+                let sana = document.getElementById("t2sana").value
+                let i = 0
+                let salasana = ""
+                while (i <= sana.length-1){
+                    salasana += sana[i] + "Ö"
+                    i += 1
+                    console.log(i)
+                }
+                document.getElementById("tulos2").innerHTML =
+                    salasana
+            }
+        </script>
+
+    </form>
+
+
+
+    <form id="tehtava3">
+        <h2>Tehtävä 3</h2>
+        <p>Tarkista, onko antamassasi sanassa Ö-kirjainta</p>
+        <label>Anna sana: <input type="text" id="t3sana"></label>
+        <button type="button" onclick="onkoÖ()">Onko ö-kirjainta</button>
+        <p id="tulos3"></p>
+        <script>
+            function onkoÖ(){
+                let sana = document.getElementById("t3sana").value
+                let i = 0
+                let tulos = ""
+                while (i <= sana.length-1){
+                    if (sana[i] == "ö"){
+                        tulos = "On"
+                        break
+                    } else {
+                        tulos = "Ei ole"
+                    }
+                    i += 1
+                }
+
+                document.getElementById("tulos3").innerHTML =
+                    tulos
+            }
+        </script>
+    </form>
+
+
+    <form id="tehtava4">
+        <h2>Tehtävä 4</h2>
+        <p>Anna luku laskeaksesi sen kertoman</p>
+        <label><input type="text" id="t4luku"></label>
+        <button type="button" onclick="kertoma()">Laske kertoma</button>
+        <p id="tulos4"></p>
+        <script>
+            function kertoma(){
+                let luku = Number(document.getElementById("t4luku").value)
+                let kerroin = 1
+                let i = 1
+                while (i <= luku){
+                    kerroin *= i
+                    i ++
+                }
+                document.getElementById("tulos4").innerHTML = 
+                    `Luvun ${luku} kertoma on ${kerroin}`             
+            }
+        </script>
+
+    </form>
+    <form id="tehtava5">
+        <h2>Tehtävä 5</h2>
+        <p>Hipheijaa, hip hip heijaa</p>
+        <button type="button" onclick="hipHeijaa()">Tulosta</button>
+        <p id="tulos5"></p>
+        <script>
+            function hipHeijaa(){
+                let i = 1
+                let tuloste = ""
+                while (i <= 100){
+                    if (i % 3 == 0 && i % 5 == 0){
+                        tuloste += "hipheijaa "
+                        i++
+                    }else if (i % 3 == 0){
+                        tuloste += "hip "
+                        i++
+                    }else if (i % 5 == 0){
+                        tuloste += "heijaa "
+                        i++
+                    }else {
+                        tuloste += String(i) + " "
+                        i++
+                    }
+                }
+                document.getElementById("tulos5").innerHTML = 
+                    tuloste
+
+            }
+        </script>
+    </form>
+    <form id="tehtava6">
+        <h2>Tehtävä 6</h2>
+        <p>Tämä ohjelma tulostaa 10 ensimmäistä numeroa</p>
+        <button type="button" onclick="kymmenenEnsimmaista()">10 Ensimmäistä</button>
+        <p id="tulos6"></p>
+        <script>
+            function kymmenenEnsimmaista(){
+                let i = 1
+                tulos = ""
+                while (i <= 10){
+                    tulos += String(i) + " "
+                    i ++
+                }
+                document.getElementById("tulos6").innerHTML =
+                    tulos
+            }
+        </script>
+
+    </form>
+
+
+
+    <form id="tehtava7">
+        <h2>Tehtävä 7</h2>
+        <p>Tämä ohjelma laskee 10 ensimmäistä numeroa yhteen</p>
+        <button type="button" onclick="kymmenenYhteen()">Laske 10 ens. yhteen</button>
+        <p id="tulos7"></p>
+        <script>
+            function kymmenenYhteen(){
+                let tulos = 0
+                let i = 1
+                while (i <= 10){
+                    tulos += i
+                    i ++
+                }
+                document.getElementById("tulos7").innerHTML = tulos
+                
+            }
+        </script>
+    </form>
+
+
+
+    <form id="tehtava8">
+        <h2>Tehtävä 8</h2>
+        <label>Anna korotettava luku: <input type="number" id="korotettava"></label> </br>
+        <label>Anna potenssi: <input type="number" name="" id="pot"></label> </br>
+        <button type="button" onclick="potenssi()">Laske</button>
+        <p id="tulos8"></p>
+        <script>
+            function potenssi(){
+                let korotettava = Number(document.getElementById("korotettava").value)
+                let pot = Number(document.getElementById("pot").value)
+                let i = 1
+                let tulos = 0 + korotettava
+                while (i < pot){
+                    tulos *= korotettava
+                    i++
+                }
+                document.getElementById("tulos8").innerHTML =
+                    tulos
+            }
+        </script>
+    </form>
+
+
+
+    <form id="tehtava9">
+        <h2>Tehtävä 9</h2>
+        <p>Etsi antamistasi luvuista suurin ja pienin arvo</p>
+        <label>Anna 1. luku: <input type="number" id="num1"></label></br>
+        <label>Anna 2. luku: <input type="number" id="num2"></label></br>
+        <label>Anna 3. luku: <input type="number" id="num3"></label></br>
+        <label>Anna 4. luku: <input type="number" id="num4"></label></br>
+        <label>Anna 5. luku: <input type="number" id="num5"></label></br>
+        <button type="button" onclick="suurinPienin()">Etsi suurin ja pienin</button>
+        <p id="tulos9"></p>
+        <script>
+            function suurinPienin(){
+                let luku1 = Number(document.getElementById("num1").value)
+                let luku2 = Number(document.getElementById("num2").value)
+                let luku3 = Number(document.getElementById("num3").value)
+                let luku4 = Number(document.getElementById("num4").value)
+                let luku5 = Number(document.getElementById("num5").value)
+                let taulukko = [luku1, luku2, luku3, luku4, luku5]
+                let pienin = taulukko[0]
+                let suurin = taulukko[0]
+                let i = 0
+                while (i <= taulukko.length-1){
+                    if (taulukko[i] < pienin){
+                        pienin = taulukko[i]
+                    }
+                    i++
+                }
+                i = 0
+                while (i <= taulukko.length-1){
+                    if (taulukko[i] > suurin){
+                        suurin = taulukko[i]
+                    }
+                    i++
+                }
+                document.getElementById("tulos9").innerHTML =
+                    `Pienin luku: ${pienin} ja suurin luku: ${suurin}`
+            }
+        </script>
+    </form>
+
+
+    <form id="tehtava10">
+        <h2>Tehtävä 10</h2>
+        <p>Tehtävä muokkaa antamasi sanan salasanaksi.</p>
+        <label>Anna muokattava salasana: <input type="text" id="t10sana"></label>
+        <button type="button" onclick="salasanaksi()">Muunna salasanaksi</button>
+        <p id="tulos10"></p>
+        <script>
+            function salasanaksi(){
+                let sana = document.getElementById("t10sana").value
+                let i = 0
+                let salasana = ""
+                while (i <= sana.length-1){
+                    salasana += sana[i] + String.fromCharCode(65 + Math.floor(Math.random()*26))
+                    i ++
+                }
+                document.getElementById("tulos10").innerHTML =
+                    salasana
+            }
+        </script>
+    </form>
+
+
+    <form id="tehtava11">
+        <h2>Tehtävä 11</h2>
+        <label>Anna pienempi numero: <input type="number" id="pienempi"></label> </br>
+        <label>Anna isompi numero: <input type="number" id="isompi"></label> </br>
+        <button type="button" onclick="parillinenPariton()">Näytä parittomat ja parilliset, sekä niiden summa</button>
+        <p id="tulos11"></p>
+        <script>
+            function parillinenPariton(){
+                let luku1 = Number(document.getElementById("pienempi").value)
+                let luku2 = Number(document.getElementById("isompi").value)
+                let parilliset = ""
+                let parittomat = ""
+                let summaParil = 0
+                let summaPariton = 0
+                let i = Number(document.getElementById("pienempi").value)
+                while ( i<= luku2){
+                    if (i % 2 == 0){
+                        summaParil += i
+                        parilliset += String(i) + " "
+                        i ++
+                    }else{
+                        summaPariton += i
+                        parittomat += String(i) + " "
+                        i++                    
+                    }      
+                }
+                document.getElementById("tulos11").innerHTML =
+                    `Parilliset numerot: ${parilliset} ja niiden summa: ${summaParil} <br>
+                    Parittomat luvut: ${parittomat} ja niiden summa: ${summaPariton}`
+
+            }
+        </script>
+    </form>
+</body>
+</html>
